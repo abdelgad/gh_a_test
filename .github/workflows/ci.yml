@@ -37,6 +37,11 @@ jobs:
         pip install flake8
         flake8 --exclude settings.py,migrations .
 
+    - name: Security Scanning
+      run: |
+        pip install bandit
+        bandit -r .
+
     - name: Run Migrations
       run: python manage.py migrate
 
