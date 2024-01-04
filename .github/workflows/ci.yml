@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  print_variable:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Run Python script
+        run: |
+          python print_env_variable.py
+        env:
+          MY_ENV_VARIABLE: ${{ secrets.MY_ENV_VARIABLE }}
