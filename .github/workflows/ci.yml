@@ -12,6 +12,9 @@ jobs:
   print_variable:
     runs-on: ubuntu-latest
 
+    env:
+      MY_ENV_VARIABLE: ${{ secrets.MY_ENV_VARIABLE }}
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -24,5 +27,3 @@ jobs:
       - name: Run Python script
         run: |
           python print_env_variable.py
-        env:
-          MY_ENV_VARIABLE: ${{ secrets.MY_ENV_VARIABLE }}
