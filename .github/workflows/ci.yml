@@ -42,6 +42,10 @@ jobs:
         pip install bandit
         bandit -r .
 
+    - name: Database Migrations Check
+      run: |
+        python manage.py makemigrations --check --dry-run
+
     - name: Run Migrations
       run: python manage.py migrate
 
