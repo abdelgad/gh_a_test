@@ -37,6 +37,7 @@ jobs:
 
     - name: Dependency Checks
       run: |
+        pip --version
         pip install safety
         safety check
 
