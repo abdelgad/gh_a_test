@@ -39,7 +39,7 @@ jobs:
       run: |
         pip --version
         pip install safety
-        safety check
+        safety check -r requirements.txt
 
     - name: Static Code Analysis
       run: |
